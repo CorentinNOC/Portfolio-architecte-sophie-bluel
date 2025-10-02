@@ -1,0 +1,8 @@
+nav ul li a {
+  color: #000;
+  text-decoration: none;
+}
+
+nav ul li .current {
+  font-weight: 700;
+}

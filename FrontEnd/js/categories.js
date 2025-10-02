@@ -1,4 +1,4 @@
-import * as works from "./works.js";
+import { displayWorks, fetchWorks } from "./works.js";
 
 let allCategories = [];
 
@@ -14,7 +14,7 @@ export async function fetchCategories() {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-  const allWorks = await works.fetchWorks();
+  const allWorks = await fetchWorks();
 
   let allCategories = await fetchCategories();
   allCategories = [{ id: 0, name: "Tous" }, ...allCategories];
@@ -32,12 +32,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     categoryButton.addEventListener("click", () => {
       if (category.id === 0) {
-        works.displayWorks(allWorks);
+        displayWorks(allWorks);
       } else {
         const filteredWorks = allWorks.filter(
           (work) => work.category.id === category.id
         );
-        works.displayWorks(filteredWorks);
+        displayWorks(filteredWorks);
       }
     });
   });
