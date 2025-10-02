@@ -1,0 +1,34 @@
+#portfolio h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+#portfolio h2 button {
+  background-color: transparent;
+  border: 0;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+#portfolio h2 button:hover {
+  color: var(--main-color);
+}
+
+#portfolio h2 button i {
+  margin-right: 10px;
+}
+
+.gallery {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+
+.gallery img {
+  width: 100%;
+}
