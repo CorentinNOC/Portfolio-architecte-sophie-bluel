@@ -1,0 +1,11 @@
+.filters {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 50px 0;
+}
+
+.filters .btn.current {
+  background-color: var(--main-color);
+  color: #fff;
+}

@@ -1,0 +1,54 @@
+import * as works from "./works.js";
+
+let allCategories = [];
+
+export async function fetchCategories() {
+  try {
+    const response = await fetch("http://localhost:5678/api/categories");
+    const data = await response.json();
+    allCategories = data;
+    return allCategories;
+  } catch (error) {
+    console.error("Erreur lors de la récupération des categories :", error);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const allWorks = await works.fetchWorks();
+
+  let allCategories = await fetchCategories();
+  allCategories = [{ id: 0, name: "Tous" }, ...allCategories];
+
+  const categoryMenu = document.querySelector(".filters");
+
+  allCategories.forEach((category) => {
+    const categoryButton = document.createElement("button");
+
+    categoryButton.classList.add("btn");
+    categoryButton.dataset.categoryId = category.id;
+    categoryButton.innerText = category.name;
+
+    categoryMenu.appendChild(categoryButton);
+
+    categoryButton.addEventListener("click", () => {
+      if (category.id === 0) {
+        works.displayWorks(allWorks);
+      } else {
+        const filteredWorks = allWorks.filter(
+          (work) => work.category.id === category.id
+        );
+        works.displayWorks(filteredWorks);
+      }
+    });
+  });
+
+  const categoryButtons = document.querySelectorAll(".filters button");
+  categoryButtons[0].classList.add("current");
+
+  categoryButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      categoryButtons.forEach((btn) => btn.classList.remove("current"));
+      button.classList.add("current");
+    });
+  });
+});
