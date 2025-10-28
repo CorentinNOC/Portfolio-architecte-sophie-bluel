@@ -26,7 +26,6 @@ function createModal() {
     modalElement.innerHTML = `
     <i class="fa-solid fa-xmark"></i>
     <h3></h3>
-    <button class="btn-full" type="button"></button>
   `;
 
     document.body.appendChild(modalElement);

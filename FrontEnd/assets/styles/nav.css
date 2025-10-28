@@ -12,3 +12,20 @@ nav ul li a:hover {
 nav ul li .current {
   font-weight: 700;
 }
+
+.edit-mode {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  font-size: 16px;
+  background-color: #000;
+}
+
+.edit-mode i {
+  margin-right: 10px;
+}

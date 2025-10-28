@@ -1,3 +1,4 @@
+import { addModal } from "./add.js";
 import { displayWorks, fetchWorks } from "./works.js";
 
 async function deleteWork() {
@@ -35,9 +36,18 @@ export async function displayDeleteModal() {
   const works = await fetchWorks();
   const modalElement = document.querySelector("dialog");
   modalElement.querySelector("h3").innerText = "Galerie photo";
-  modalElement.querySelector("button").innerText = "Ajouter une photo";
-  modalElement.querySelector("button").type = "button";
-  modalElement.querySelector("button").disabled = false;
+
+  const worksSection = document.createElement("section");
+  worksSection.classList.add("works");
+
+  const addButton = document.createElement("button");
+  addButton.classList.add("btn-full");
+  addButton.type = "button";
+  addButton.innerText = "Ajouter une photo";
+
+  addButton.addEventListener("click", () => {
+    addModal();
+  });
 
   const worksModal = document.createElement("div");
   worksModal.classList.add("modify-works");
@@ -61,7 +71,10 @@ export async function displayDeleteModal() {
 
   modalElement
     .querySelector("h3")
-    .insertAdjacentElement("afterend", worksModal);
+    .insertAdjacentElement("afterend", worksSection);
+
+  worksSection.appendChild(worksModal);
+  worksSection.appendChild(addButton);
 
   deleteWork();
 }

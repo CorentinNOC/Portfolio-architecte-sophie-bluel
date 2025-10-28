@@ -21,5 +21,10 @@ window.addEventListener("DOMContentLoaded", () => {
         window.location.href = "login.html";
       }
     });
+
+    document.querySelector(".filters").style.display = "none";
+    document.querySelector(".gallery").style.marginTop = "90px";
+    document.querySelector(".edit-mode").style.display = "block";
+    document.querySelector("header").style.paddingTop = "50px";
   }
 });
