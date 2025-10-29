@@ -1,5 +1,7 @@
 let allWorks = [];
 
+// Importe depuis le backend les travaux
+
 export async function fetchWorks() {
   try {
     const response = await fetch("http://localhost:5678/api/works");
@@ -11,7 +13,7 @@ export async function fetchWorks() {
   }
 }
 
-// Display works
+// Afficher les travaux
 export function displayWorks(currentWorks) {
   const gallery = document.querySelector(".gallery");
   gallery.innerHTML = "";

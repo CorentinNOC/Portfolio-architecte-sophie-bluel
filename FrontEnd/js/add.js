@@ -2,6 +2,8 @@ import { fetchCategories } from "./categories.js";
 import { displayDeleteModal } from "./delete.js";
 import { displayWorks, fetchWorks } from "./works.js";
 
+// Gère l'affichage de l'ajout d'image et la preview pour la création d'un travail
+
 function addWorkForm() {
   const uploadButton = document.querySelector("#file-input");
   uploadButton.addEventListener("change", () => {
@@ -35,6 +37,8 @@ function addWorkForm() {
   });
 }
 
+// Gère l'ajout du job dans l'API
+
 async function submitWork() {
   const submitForm = document.querySelector(".form-add");
   const submitWorkImage = submitForm.querySelector("#file-input");
@@ -66,6 +70,8 @@ async function submitWork() {
     console.error("Erreur lors de l'ajout :", error.message);
   }
 }
+
+// Gère l'affichage de la modal pour ajouter un job
 
 export async function addModal() {
   const categories = await fetchCategories();

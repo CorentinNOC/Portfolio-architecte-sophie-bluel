@@ -1,6 +1,8 @@
 import { addModal } from "./add.js";
 import { displayWorks, fetchWorks } from "./works.js";
 
+// Gère la suppression des travaux avec l'update directement dans l'API
+
 async function deleteWork() {
   const works = document.querySelectorAll(".modify-works figure");
 
@@ -31,6 +33,8 @@ async function deleteWork() {
     });
   });
 }
+
+// Gère l'affichage de la modal pour supprimer des travaux
 
 export async function displayDeleteModal() {
   const works = await fetchWorks();

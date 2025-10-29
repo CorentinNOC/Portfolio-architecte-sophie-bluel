@@ -1,5 +1,7 @@
 import { displayDeleteModal } from "./delete.js";
 
+// Gère le display du texte pour afficher la modal pour editer les travaux
+
 document.addEventListener("DOMContentLoaded", async () => {
   const authToken = localStorage.getItem("authToken");
 
@@ -16,6 +18,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 });
+
+// Fonction pour créer la modal d'édition et son affichage
 
 function createModal() {
   let modalElement = document.querySelector("dialog");

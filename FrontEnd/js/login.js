@@ -1,5 +1,7 @@
 import "./nav.js";
 
+// Gère l'authentification au site et de l'enregistrement du token
+
 document.addEventListener("DOMContentLoaded", () => {
   const loginForm = document.querySelector("form");
   const authToken = localStorage.getItem("authToken");

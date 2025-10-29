@@ -1,6 +1,10 @@
 import { displayWorks, fetchWorks } from "./works.js";
 
+// Initie un tableau de catégorie vite
+
 let allCategories = [];
+
+// Importe les catégories depuis l'API
 
 export async function fetchCategories() {
   try {
@@ -12,6 +16,8 @@ export async function fetchCategories() {
     console.error("Erreur lors de la récupération des categories :", error);
   }
 }
+
+// Créer le tableau avec les différentes catégories et gère son affichage
 
 document.addEventListener("DOMContentLoaded", async () => {
   const allWorks = await fetchWorks();
